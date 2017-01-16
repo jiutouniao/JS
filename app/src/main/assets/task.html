@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>jQuery Mobile创建的第一个网页</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--引用jQuery Mobile函数库-->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<!--最佳化屏幕宽度-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/buttons.css" />
+	<style type="text/css">
+			#content {
+				text-align: center;
+			}
+
+			.text1 {
+				text-align: center;
+				color: #A5ADB9;
+				font-size: 12pt;
+				font-style: normal;
+			}
+
+			.text2 {
+				text-align: left;
+				color: #000000;
+				font-size: 12pt;
+				font-style: normal;
+			}
+
+			.question_type_bg {
+				height: 37.9pt;
+				width: 100%;
+				text-align: left;
+				color: #FFFFFF;
+				font-size: 12pt;
+				font-style: normal;
+				margin: 0;
+				padding: 0;
+			}
+
+			.question_table_bg {
+				height: 100%;
+				width: 100%;
+				text-align: left;
+				color: #FFFFFF;
+				font-size: 12pt;
+				font-style: normal;
+				margin: 0;
+				padding: 0;
+				word-break: keep-all;
+				/* for ie */
+				white-space: nowrap;
+				/* for chrome */
+			}
+
+			.question_table_td {
+				text-align: left;
+				color: #FF00FF;
+				margin: 0;
+				padding: 0;
+				word-break: keep-all;
+				/* for ie */
+				white-space: nowrap;
+				/* for chrome */
+			}
+
+			.question_title_image {
+				height: 40%;
+				margin: 0;
+				padding: 0;
+			}
+
+			.quetion_line {
+				height: 1px;
+				border: none;
+				border-top: 1px solid #E0E9F2;
+				margin: 0px;
+			}
+
+			#question_text {
+				text-align: left;
+				color: #000000;
+				font-size: 12pt;
+				font-style: normal;
+				padding-top: 20pt;
+				padding-right: 10pt;
+				padding-left: 10pt;
+				padding-bottom: 10pt;
+			}
+
+			#button {
+				background: url(../Images/searchpic.gif)搜索;
+				height: 50px;
+				width: 50px;
+				border-top-width: 0px;
+				border-right-width: 0px;
+				border-bottom-width: 0px;
+				border-left-width: 0px;
+				border-top-style: solid;
+				border-right-style: solid;
+				border-bottom-style: solid;
+				border-left-style: solid;
+				cursor: pointer;
+			}
+
+			.btn_span {
+				display: block;
+				height: 50px;
+				width: 50px;
+				cursor: pointer;
+				background-image: url(img/bg_test_numberselect.png);
+				color: #0662A6;
+			}
+
+			#question_blank {
+				border-top-width: 20px;
+				border-right-width: 0px;
+				border-bottom-width: 0px;
+				border-left-width: 0px;
+				background: #FFFFFF;
+				border-bottom-color: #000000;
+				border-top-color: #FFFFFF;
+				border-right-color: #FFFFFF;
+				border-left-color: #FFFFFF;
+				border-left: 0px;
+				border-top: 0px;
+				border-right: 0px;
+				border-bottom: 5px border-top-style: solid;
+				border-right-style: solid;
+				border-bottom-style: solid;
+				border-left-style: solid;
+				cursor: pointer;
+				border-style: none;
+			}
+		</style>
+</head>
+
+<body background="#FFFFFF">
+<!--第一页-->
+<div data-role="page" data-title="第一页" id="first">
+	<div data-role="content" id="content" style="background:#FFFFFF; padding: 0px;">
+		<!-----------------------------------题型和题号------------------------------------------------>
+		<hr class="quetion_line" />
+		<div align="left" class="question_type_bg" align="center">
+			<table data-role="table" class="question_table_bg">
+				<tr>
+					<td class="question_table_td">
+						<span style="padding-left: 10px;" class="text1">题型:</span>
+					</td>
+					<td class="question_table_td">
+						<span class="text2">选择题</span>
+					</td>
+					<td class="question_table_td" width="80%" align="center">
+						<center>
+							<span class="text2">1</span><span class="text1">/</span><span class="text1">12</span>
+						</center>
+					</td>
+					<td class="question_table_td">
+						<img class="question_title_image" src="img/icon_datika_exercise.png" />
+					</td>
+					<td style="padding-right: 10px;" class="question_table_td">
+						<span class="text2">答题卡</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<hr class="quetion_line" />
+		<!------------------------------------题目内容------------------------------------------------->
+		<!--								<div id="question_text">看拼音写词语。（）<br/> xù yǔ<br/>（ ）</div>
+        -->
+		<div id="question_text"></div>
+		<div id="hello_web"></div>
+		<!------------------------------------选择题答案----------------------------------------------->
+		<!--选择题-->
+		<table data-role="table" class="question_table_bg">
+			<tr>
+				<td style="padding: 5pt;">
+					<a id="anwser_a" onclick="setAnwser()" href="#" class="button button-circle button-royal">A</a>
+				</td>
+				<td style="width: 100%;">
+					<p style="color: #000000;">think of</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="padding: 5pt;">
+					<a id="anwser_b" onclick="setAnwser()" href="#" class="button button-circle button-royal">B</a>
+				</td>
+				<td style="width: 100%;">
+					<p style="color: #000000;"> like</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="padding: 5pt;">
+					<a id="anwser_c" onclick="setAnwser()" href="#" class="button button-circle button-royal">C</a>
+				</td>
+				<td cstyle="width: 100%;">
+					<p style="color: #000000;">think</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="padding: 5pt;">
+					<a id="anwser_d" onclick="setAnwser()" href="#" class="button button-circle button-royal">D</a>
+				</td>
+				<td style="width: 100%;">
+					<p style="color: #000000; ">think over</p>
+				</td>
+			</tr>
+		</table>
+
+	</div>
+</div>
+
+
+<script type="text/javascript" language="javascript">
+
+      	function setQuestion(){
+		}
+      	function setAnwser() {
+      	window.taskObject.onAnwser("js调用了android的方法！2222");
+		}
+    function funFromjs(){
+    	document.getElementById("question_text").innerHTML="aaaaaa";
+    	document.getElementById("hello_web").innerHTML="HelloWebView,i'm from js";
+    }
+
+</script>
+</body>
+
+</html>
